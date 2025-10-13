@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inkbound × Ash B — Indie Relief Portal</title>
+  <meta name="description" content="A transparent, digital fundraiser hub for indie authors. Donate via GoFundMe, confirm your entry, and see the impact grow." />
+  <meta name="theme-color" content="#355e3b" />
+  <meta property="og:title" content="Indie Relief Portal — Inkbound × Ash B" />
+  <meta property="og:description" content="Support indie authors fast and transparently. Donate on GoFundMe, confirm your entry, see live totals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://inkboundsociety.com/og/indie-relief-portal.png" />
+  <meta property="og:image:alt" content="Indie Relief Portal banner" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --sage:#b2bfa3;          /* Sage Green */
+      --hunter:#355e3b;        /* Hunter Green */
+      --gold:#d4af37;          /* Deep Yellow/Gold */
+      --black:#0a0a0a;         /* Black */
+      --text:#ffffff;          /* White text */
+      --soft:#e6e6e6;          /* Muted copy */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--text);
+      background:
+        radial-gradient(900px 500px at 100% 0%, rgba(178,191,163,.20), transparent 60%),
+        radial-gradient(800px 500px at 0% 100%, rgba(53,94,59,.25), transparent 60%),
+        linear-gradient(180deg, var(--hunter) 0%, var(--black) 100%);
+      background-attachment:fixed;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--gold);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1160px;margin:0 auto;padding:28px}
+    .pill{display:inline-flex;align-items:center;gap:.6rem;border:2px solid var(--gold);color:#1b1b1b;padding:.38rem .85rem;border-radius:999px;background:linear-gradient(180deg,var(--gold),#f7e8b0);font-weight:800;letter-spacing:.3px;box-shadow:0 0 24px rgba(212,175,55,.30)}
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+    @media (max-width: 900px){.hero{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);overflow:hidden}
+    .card-inner{padding:22px}
+    .btn{--h:56px;display:inline-flex;align-items:center;gap:10px;justify-content:center;height:var(--h);padding:0 22px;border-radius:16px;border:0;background:linear-gradient(90deg,var(--gold),var(--sage));color:#1b1b1b;font-weight:900;letter-spacing:.35px;text-transform:uppercase;box-shadow:0 12px 40px rgba(212,175,55,.35);transition:transform .12s ease, box-shadow .12s ease}
+    .btn:hover{transform:translateY(-1px) scale(1.01);box-shadow:0 18px 50px rgba(212,175,55,.5)}
+    .btn-ghost{background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.35);color:var(--text);text-transform:none;font-weight:700}
+    .btn-help{background:linear-gradient(90deg,var(--sage),var(--gold));color:#1b1b1b}
+    .grid{display:grid;gap:18px}
+    .g-2{grid-template-columns:repeat(2,1fr)}
+    .g-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width: 900px){.g-2,.g-3{grid-template-columns:1fr}}
+    .title{font-size:clamp(30px,4.5vw,54px);line-height:1.03;margin:8px 0 6px;font-weight:900;text-shadow:0 6px 24px rgba(0,0,0,.35)}
+    .subtitle{font-size:clamp(15px,1.8vw,19px);color:var(--soft);margin:0}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;color:#111827;font-size:14px}
+    .media{aspect-ratio:16/9;width:100%;background:radial-gradient(120% 120% at 100% 0%, rgba(212,175,55,.22), transparent 50%), #0b0e15;display:grid;place-items:center;color:#8e9191}
+    .img{width:100%;height:100%;object-fit:cover}
+    .kicker{font-weight:900;color:#1b1b1b;background:linear-gradient(90deg,var(--gold),#f7e8b0);display:inline-block;padding:.25rem .6rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);box-shadow:0 10px 30px rgba(212,175,55,.25);letter-spacing:.2px;margin-bottom:6px}
+    .list li{margin:.45rem 0}
+    .progress{height:16px;background:#0c0f16;border-radius:999px;border:1px solid rgba(255,255,255,.18);overflow:hidden}
+    .bar{height:100%;background:linear-gradient(90deg, var(--sage), var(--gold));width:0%}
+    .badge{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .7rem;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.08));font-size:13px;color:var(--text)}
+    .footer{opacity:.9;font-size:13px}
+    .divider{height:2px;background:linear-gradient(90deg, transparent, var(--gold), transparent);margin:22px 0}
+    .small{font-size:14px;color:var(--soft)}
+    .sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+    .notice{background:linear-gradient(180deg, rgba(53,94,59,.18), rgba(53,94,59,.10));border:1px solid rgba(212,175,55,.45);border-radius:16px;padding:16px;color:#e9f2e9}
+    .countdown{font-variant-numeric:tabular-nums}
+    .halo{position:relative}
+    .halo::after{content:"";position:absolute;inset:-2px;border-radius:24px;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.08), 0 0 80px rgba(212,175,55,.20)}
+    .tips{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media (max-width: 900px){.tips{grid-template-columns:1fr}}
+    .tip{background:linear-gradient(180deg, rgba(178,191,163,.18), rgba(212,175,55,.12));border:1px solid rgba(255,255,255,.3);padding:14px;border-radius:16px}
+    details.faq{background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:12px}
+    details.faq summary{cursor:pointer;font-weight:800}
+    .sparkle{position:absolute; inset:0; pointer-events:none; opacity:.25}
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#current">Skip to content</a>
+  <svg class="sparkle" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>
+      <radialGradient id="g" r="1">
+        <stop offset="0" stop-color="#fff"/>
+        <stop offset="1" stop-color="transparent"/>
+      </radialGradient>
+    </defs>
+    <circle cx="12" cy="18" r="1.2" fill="url(#g)"/>
+    <circle cx="84" cy="9" r="1.6" fill="url(#g)"/>
+    <circle cx="92" cy="44" r="1.1" fill="url(#g)"/>
+    <circle cx="30" cy="70" r="1.3" fill="url(#g)"/>
+    <circle cx="68" cy="86" r="1.4" fill="url(#g)"/>
+  </svg>
+
+  <main class="wrap">
+    <div class="pill" aria-label="Portal label">✨ Inkbound × Ash B</div>
+
+    <!-- HERO -->
+    <section class="hero" style="margin-top:16px">
+      <div>
+        <h1 class="title">Indie Relief Portal</h1>
+        <p class="subtitle">Support indie authors fast and transparently. Donations go <strong>directly</strong> to GoFundMe. Digital raffle prizes make it global and instant.</p>
+        <div class="meta" style="margin:16px 0 22px">
+          <span class="badge" title="Who you're helping">Current Cause: <span id="cause-name">—</span></span>
+          <span class="badge" title="Fundraising goal">Goal: <span id="goal-amount">—</span></span>
+          <span class="badge" title="Live countdown to draw">Live Draw In: <span id="countdown" class="countdown">—</span></span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a id="donate-btn" class="btn" href="#" target="_blank" rel="noopener" onclick="confetti()">💖 Donate on GoFundMe</a>
+          <a id="form-btn" class="btn btn-ghost" href="#entries">📩 Enter the Raffle</a>
+          <a class="btn btn-help" href="#help">🛟 Help</a>
+        </div>
+      </div>
+      <div class="card halo">
+        <div class="media" aria-label="Featured image">
+          <img id="hero-image" class="img" alt="Featured fundraiser visual" src=""/>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" role="presentation"></div>
+
+    <!-- QUICK TIPS -->
+    <section id="help" class="tips">
+      <div class="tip"><strong>1) Donate</strong><br><span class="small">Tap the gold button → you’ll land on the verified GoFundMe.</span></div>
+      <div class="tip"><strong>2) Confirm</strong><br><span class="small">Upload your receipt via our quick form → we count tickets automatically.</span></div>
+      <div class="tip"><strong>3) Celebrate</strong><br><span class="small">We draw live and email the winner. Your kindness <em>directly</em> helps an indie author.</span></div>
+    </section>
+
+    <!-- CURRENT CAUSE -->
+    <section id="current" class="grid g-2" style="margin-top:18px">
+      <article class="card">
+        <div class="card-inner">
+          <div class="kicker">Current Cause</div>
+          <h2 style="margin:0 0 6px" id="cause-title">—</h2>
+          <p id="cause-summary" class="small">—</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 10px">
+            <div>
+              <div class="small">Manual progress (optional)</div>
+              <div class="progress" aria-label="Progress toward goal"><div id="progress-bar" class="bar" style="width:0%"></div></div>
+              <div class="small" style="display:flex;gap:10px;margin-top:6px">
+                <span id="progress-numbers">—</span>
+              </div>
+            </div>
+            <div class="notice small">
+              <strong>Transparency:</strong> All donations go to the verified GoFundMe. We never touch the funds.
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+            <a id="donate-btn-2" class="btn" href="#" target="_blank" rel="noopener" onclick="confetti()">💖 Donate on GoFundMe</a>
+            <a class="btn btn-ghost" href="#gfm">📊 View Live Totals</a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="card halo">
+        <div class="media">
+          <img id="cause-image" class="img" alt="Person or project we're supporting" src=""/>
+        </div>
+        <div class="card-inner">
+          <ul class="list small" id="impact-list"></ul>
+        </div>
+      </aside>
+    </section>
+
+    <!-- GOFUNDME EMBED -->
+    <section id="gfm" class="card" style="margin-top:18px">
+      <div class="card-inner">
+        <div class="kicker">Live Totals</div>
+        <h3 style="margin:0 0 8px">GoFundMe</h3>
+        <p class="small">Paste your official GoFundMe widget below (GoFundMe → Share → Embed). It updates automatically with live totals.</p>
+      </div>
+      <div class="media" style="background:#0b0c0c">
+        <iframe id="gfm-embed" title="GoFundMe" src="about:blank" style="width:100%;height:100%;border:0"></iframe>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="grid g-3" style="margin-top:18px">
+      <div class="card"><div class="card-inner">
+        <div class="kicker">Step 1</div>
+        <h3 style="margin:0 0 6px">Donate on GoFundMe</h3>
+        <p class="small">Click Donate. 100% of your contribution goes straight to the author via their verified GoFundMe.</p>
+      </div></div>
+      <div class="card"><div class="card-inner">
+        <div class="kicker">Step 2</div>
+        <h3 style="margin:0 0 6px">Confirm Entry</h3>
+        <p class="small">Upload your receipt using our quick form. Every €/$5 donated equals one raffle ticket.</p>
+        <p class="small"><a id="form-link" href="#" target="_blank" rel="noopener">Open the Entry Form →</a></p>
+      </div></div>
+      <div class="card"><div class="card-inner">
+        <div class="kicker">Step 3</div>
+        <h3 style="margin:0 0 6px">Live Draw</h3>
+        <p class="small">We draw the winner live on TikTok/Instagram using a fair, on-screen randomizer.</p>
+      </div></div>
+    </section>
+
+    <!-- PRIZES -->
+    <section class="card halo" style="margin-top:18px">
+      <div class="card-inner">
+        <div class="kicker">This Round’s Digital Prizes</div>
+        <div id="prizes" class="grid g-3" style="margin-top:8px"></div>
+      </div>
+    </section>
+
+    <!-- ENTRIES / FORM -->
+    <section id="entries" class="card" style="margin-top:18px">
+      <div class="card-inner">
+        <div class="kicker">Confirm Your Entries</div>
+        <h3 style="margin:0 0 8px">Upload Receipt → Get Tickets</h3>
+        <p class="small">After donating on GoFundMe, <a id="form-link-2" href="#" target="_blank" rel="noopener">open this form</a> and attach your receipt (screenshot or PDF). We calculate your entries automatically.</p>
+        <details class="faq" style="margin-top:10px">
+          <summary>How many tickets do I get?</summary>
+          <p class="small" style="margin:8px 0 0">Every €/$5 = 1 ticket. For example: €/$25 = 5 tickets, €/$50 = 10 tickets.</p>
+        </details>
+        <details class="faq" style="margin-top:10px">
+          <summary>Is my donation tax-deductible?</summary>
+          <p class="small" style="margin:8px 0 0">Tax deductibility varies by country and campaign type. Please check local rules and the details on the GoFundMe page.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- PAST CAUSES -->
+    <section class="card halo" style="margin-top:18px">
+      <div class="card-inner">
+        <div class="kicker">Past Causes</div>
+        <div id="past-causes" class="grid g-3" style="margin-top:8px"></div>
+      </div>
+    </section>
+
+    <!-- PRIVACY POLICY (Collapsible) -->
+    <section id="privacy" class="card" style="margin-top:18px">
+      <div class="card-inner">
+        <div class="kicker">Privacy & Data</div>
+        <details class="faq">
+          <summary>Privacy Policy — tap to expand</summary>
+          <div class="small" style="margin-top:10px">
+            <p><strong>What we collect:</strong> Your name, email address, donation amount (self-reported), and the receipt/screenshot you upload via our Google Form.</p>
+            <p><strong>Why:</strong> To verify raffle eligibility (every €/$5 = 1 ticket), contact the winner, and provide basic transparency about the fundraiser.</p>
+            <p><strong>Where it’s stored:</strong> Responses live in Google Forms/Google Drive, accessible only to the Indie Relief organizers (Inkbound × Ash B) who need it to run the event.</p>
+            <p><strong>How long we keep it:</strong> We keep entries until the winner has received prizes and any post-campaign checks are complete, then we periodically purge identifying data. You can request deletion at any time.</p>
+            <p><strong>Third parties:</strong> Donations are processed on GoFundMe (their privacy terms apply). Entry data is collected via Google Forms/Drive (Google’s terms apply). We do not sell or share your data for marketing.</p>
+            <p><strong>Your choices:</strong> You can request a copy or deletion of your entry data. Email <em>Amanda</em> at <strong>@the.inkbound.society</strong> or <em>Ash.B</em> at <strong>@reptilesandreads</strong>.</p>
+            <p><strong>Minors:</strong> This raffle is intended for adults. If we learn we’ve collected data from a minor without guardian consent, we’ll delete it.</p>
+            <p><strong>Security:</strong> We use Google’s built-in protections and restrict access to organizers only. No payment info is handled on this site.</p>
+            <p><strong>Updates:</strong> We may revise this notice for clarity or compliance. Changes will be posted here with a new date.</p>
+            <p class="small">Last updated: <span id="pp-date"></span></p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <footer class="wrap" style="padding:12px 0 32px">
+      <div class="divider"></div>
+      <div class="footer">
+        <p>© <span id="year"></span> Inkbound × Ash B. All rights reserved.</p>
+        <p class="small">Any issues? Contact <strong>Amanda</strong> @the.inkbound.society or <strong>Ash.B</strong> @reptilesandreads.</p>
+        <p class="small">By participating, you agree to the raffle rules and our privacy notice.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // ====== CONFIG (Edit these values per fundraiser) ======
+    const CONFIG = {
+      brand: {
+        name: "Inkbound × Ash B",
+        primary: "#355e3b",            // hunter green
+        accent: "#d4af37",             // gold
+      },
+      gofundme: {
+        url: "https://www.gofundme.com/f/REPLACE_WITH_YOUR_CAMPAIGN", // <-- replace with your live campaign
+        // Paste the official widget URL below (Share ▶ Embed)
+        embedUrl: "about:blank"         // e.g. https://www.gofundme.com/f/your-campaign/widget/large
+      },
+      form: { url: "https://forms.gle/fja1KcQQ2mJc38Mx8" },
+      cause: {
+        name: "Current Author — Community Relief",
+        title: "Support Our Featured Indie Author",
+        summary: "We’re rallying the community to cover urgent costs so this author can stay safe, stable, and keep creating.",
+        image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1974&auto=format&fit=crop",
+        heroImage: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1974&auto=format&fit=crop",
+        impact: [
+          "Covers immediate essentials (rent, groceries, utilities)",
+          "Provides recovery time to get back on their feet",
+          "Keeps indie work moving forward"
+        ],
+        goal: 3000,
+        raised: 0,
+        drawISO: "2025-10-20T20:00:00Z" // UTC time for live draw
+      },
+      prizes: [
+        { name: "Custom Character Art Voucher", by: "Ash B", details: "One fully rendered character portrait (digital)", value: "$300 value" },
+        { name: "Website Audit or Mini Build", by: "Inkbound (Amanda)", details: "Audit + action plan, or a 1–3 page mini-build", value: "€400 value" },
+        { name: "Editing Consultation", by: "Partner Editor", details: "1-hour developmental consultation via Zoom", value: "$150 value" },
+      ],
+      past: [
+        { name: "Author A", total: 4200, date: "2025-08-12", image: "https://images.unsplash.com/photo-1486825586573-7131f7991bdd?q=80&w=1974&auto=format&fit=crop" },
+        { name: "Author B", total: 3100, date: "2025-06-03", image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=1974&auto=format&fit=crop" },
+        { name: "Author C", total: 5200, date: "2025-03-21", image: "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1974&auto=format&fit=crop" },
+      ]
+    };
+
+    // ====== RENDER LOGIC ======
+    const $ = (s)=>document.querySelector(s);
+    const $$ = (s)=>document.querySelectorAll(s);
+    function money(n, currency = "€/$"){ if(typeof n !== 'number') return n; return new Intl.NumberFormat(undefined, { style:'currency', currency:'EUR' }).format(n).replace('€', currency); }
+
+    function init(){
+      // Brand hues (if you want to drive CSS vars from config)
+      document.documentElement.style.setProperty('--hunter', CONFIG.brand.primary);
+      document.documentElement.style.setProperty('--gold', CONFIG.brand.accent);
+
+      // Hero + buttons
+      $('#cause-name').textContent = CONFIG.cause.name;
+      $('#goal-amount').textContent = money(CONFIG.cause.goal);
+      $('#donate-btn').href = CONFIG.gofundme.url;
+      $('#donate-btn-2').href = CONFIG.gofundme.url;
+      $('#form-link').href = CONFIG.form.url;
+      $('#form-link-2').href = CONFIG.form.url;
+      $('#form-btn').href = CONFIG.form.url;
+      $('#hero-image').src = CONFIG.cause.heroImage;
+
+      // Current cause details
+      $('#cause-title').textContent = CONFIG.cause.title;
+      $('#cause-summary').textContent = CONFIG.cause.summary;
+      $('#cause-image').src = CONFIG.cause.image;
+
+      // Impact list
+      const impactEl = $('#impact-list');
+      impactEl.innerHTML = '';
+      CONFIG.cause.impact.forEach(item=>{
+        const li = document.createElement('li'); li.textContent = '• ' + item; impactEl.appendChild(li);
+      });
+
+      // Manual progress (optional visual)
+      const { raised, goal } = CONFIG.cause;
+      const pct = Math.max(0, Math.min(100, Math.round((raised/Math.max(1,goal))*100)));
+      $('#progress-bar').style.width = pct + '%';
+      $('#progress-numbers').textContent = `${money(raised)} raised of ${money(goal)}`;
+
+      // Countdown
+      startCountdown(CONFIG.cause.drawISO);
+
+      // Prizes
+      const prizes = $('#prizes');
+      prizes.innerHTML = '';
+      CONFIG.prizes.forEach(p=>{
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `<div class="card-inner"><h4 style="margin:0 0 4px">${p.name}</h4><p class=\"small\">by <strong>${p.by}</strong></p><p class=\"small\">${p.details}</p><p class=\"small\" style=\"opacity:.9\">${p.value||''}</p></div>`;
+        prizes.appendChild(div);
+      });
+
+      // Past causes
+      const past = $('#past-causes');
+      past.innerHTML = '';
+      CONFIG.past.forEach(c=>{
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="media"><img class="img" alt="${c.name} past cause" src="${c.image}"></div>
+          <div class="card-inner">
+            <h4 style="margin:0 0 6px">${c.name}</h4>
+            <p class="small">Raised: <strong>${money(c.total)}</strong></p>
+            <p class="small">Date: ${new Date(c.date).toLocaleDateString()}</p>
+          </div>`;
+        past.appendChild(card);
+      });
+
+      // GoFundMe embed
+      const gfm = $('#gfm-embed');
+      gfm.src = CONFIG.gofundme.embedUrl || 'about:blank';
+
+      // Footer year
+      $('#year').textContent = new Date().getFullYear();
+    }
+
+    function startCountdown(iso){
+      if(!iso) return $('#countdown').textContent = '—';
+      const target = new Date(iso);
+      const out = $('#countdown');
+      function tick(){
+        const now = new Date();
+        let diff = Math.max(0, target - now);
+        const d = Math.floor(diff / (1000*60*60*24)); diff -= d*24*60*60*1000;
+        const h = Math.floor(diff / (1000*60*60)); diff -= h*60*60*1000;
+        const m = Math.floor(diff / (1000*60)); diff -= m*60*1000;
+        const s = Math.floor(diff / 1000);
+        out.textContent = `${String(d).padStart(2,'0')}d:${String(h).padStart(2,'0')}h:${String(m).padStart(2,'0')}m:${String(s).padStart(2,'0')}s`;
+      }
+      tick();
+      setInterval(tick, 1000);
+    }
+
+    // Simple celebratory confetti (palette-matched)
+    function confetti(){
+      const n = 36;
+      const colors = ['#d4af37','#b2bfa3','#355e3b','#ffffff'];
+      for(let i=0;i<n;i++){
+        const p = document.createElement('div');
+        p.style.position='fixed';
+        p.style.left=Math.random()*100+'vw';
+        p.style.top='-10px';
+        p.style.width='8px'; p.style.height='14px';
+        p.style.background=colors[i%colors.length];
+        p.style.transform='rotate('+Math.random()*360+'deg)';
+        p.style.opacity='0.9';
+        p.style.zIndex=9999;
+        document.body.appendChild(p);
+        const fall = p.animate([{transform:p.style.transform, top:'-10px'},{transform:'rotate('+(Math.random()*360)+'deg)', top: (100+Math.random()*20)+'vh'}],{duration:1200+Math.random()*1200, easing:'ease-in'});
+        fall.onfinish=()=>p.remove();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
