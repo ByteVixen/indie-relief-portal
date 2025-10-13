@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inkbound × Ash B — Indie Relief Portal</title>
-  <meta name="description" content="A transparent, digital fundraiser hub for indie authors. Donate via GoFundMe, confirm your entry, and see the impact grow." />
+  <meta name="description" content="A transparent, digital fundraiser hub for indie Creators. Donate via GoFundMe, confirm your entry, and see the impact grow." />
   <meta name="theme-color" content="#355e3b" />
   <meta property="og:title" content="Indie Relief Portal — Inkbound × Ash B" />
-  <meta property="og:description" content="Support indie authors fast and transparently. Donate on GoFundMe, confirm your entry, see live totals." />
+  <meta property="og:description" content="Support indie creators fast and transparently. Donate on GoFundMe, confirm your entry, see live totals." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://inkboundsociety.com/og/indie-relief-portal.png" />
   <meta property="og:image:alt" content="Indie Relief Portal banner" />
@@ -95,13 +95,17 @@
   </svg>
 
   <main class="wrap">
-    <div class="pill" aria-label="Portal label">✨ Inkbound × Ash B</div>
+    <!-- Header: logo + clean portal name -->
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+      <img src="logo.png" alt="Portal logo" style="height: 250px;width:auto;border-radius:12px;box-shadow:50 0 12px rgba(212,175,55,.3)">
+      
+    </div>
 
     <!-- HERO -->
     <section class="hero" style="margin-top:16px">
       <div>
         <h1 class="title">Indie Relief Portal</h1>
-        <p class="subtitle">Support indie authors fast and transparently. Donations go <strong>directly</strong> to GoFundMe. Digital raffle prizes make it global and instant.</p>
+        <p class="subtitle">Support indie creators fast and transparently. Donations go <strong>directly</strong> to GoFundMe. Digital raffle prizes make it global and instant.</p>
         <div class="meta" style="margin:16px 0 22px">
           <span class="badge" title="Who you're helping">Current Cause: <span id="cause-name">—</span></span>
           <span class="badge" title="Fundraising goal">Goal: <span id="goal-amount">—</span></span>
@@ -126,7 +130,7 @@
     <section id="help" class="tips">
       <div class="tip"><strong>1) Donate</strong><br><span class="small">Tap the gold button → you’ll land on the verified GoFundMe.</span></div>
       <div class="tip"><strong>2) Confirm</strong><br><span class="small">Upload your receipt via our quick form → we count tickets automatically.</span></div>
-      <div class="tip"><strong>3) Celebrate</strong><br><span class="small">We draw live and email the winner. Your kindness <em>directly</em> helps an indie author.</span></div>
+      <div class="tip"><strong>3) Celebrate</strong><br><span class="small">We draw live and email the winner. Your kindness <em>directly</em> helps an indie Creator.</span></div>
     </section>
 
     <!-- CURRENT CAUSE -->
@@ -184,12 +188,12 @@
       <div class="card"><div class="card-inner">
         <div class="kicker">Step 1</div>
         <h3 style="margin:0 0 6px">Donate on GoFundMe</h3>
-        <p class="small">Click Donate. 100% of your contribution goes straight to the author via their verified GoFundMe.</p>
+        <p class="small">Click Donate. 100% of your contribution goes straight to the Creator via their verified GoFundMe.</p>
       </div></div>
       <div class="card"><div class="card-inner">
         <div class="kicker">Step 2</div>
         <h3 style="margin:0 0 6px">Confirm Entry</h3>
-        <p class="small">Upload your receipt using our quick form. Every €/$5 donated equals one raffle ticket.</p>
+        <p class="small">Upload your receipt using our quick form. Every $10 donated equals one raffle ticket.</p>
         <p class="small"><a id="form-link" href="#" target="_blank" rel="noopener">Open the Entry Form →</a></p>
       </div></div>
       <div class="card"><div class="card-inner">
@@ -215,7 +219,7 @@
         <p class="small">After donating on GoFundMe, <a id="form-link-2" href="#" target="_blank" rel="noopener">open this form</a> and attach your receipt (screenshot or PDF). We calculate your entries automatically.</p>
         <details class="faq" style="margin-top:10px">
           <summary>How many tickets do I get?</summary>
-          <p class="small" style="margin:8px 0 0">Every €/$5 = 1 ticket. For example: €/$25 = 5 tickets, €/$50 = 10 tickets.</p>
+          <p class="small" style="margin:8px 0 0">Every $10 = 1 ticket. For example: $20 = 2 tickets, $50 = 5 tickets.</p>
         </details>
         <details class="faq" style="margin-top:10px">
           <summary>Is my donation tax-deductible?</summary>
@@ -240,7 +244,7 @@
           <summary>Privacy Policy — tap to expand</summary>
           <div class="small" style="margin-top:10px">
             <p><strong>What we collect:</strong> Your name, email address, donation amount (self-reported), and the receipt/screenshot you upload via our Google Form.</p>
-            <p><strong>Why:</strong> To verify raffle eligibility (every €/$5 = 1 ticket), contact the winner, and provide basic transparency about the fundraiser.</p>
+            <p><strong>Why:</strong> To verify raffle eligibility (every $10 = 1 ticket), contact the winner, and provide basic transparency about the fundraiser.</p>
             <p><strong>Where it’s stored:</strong> Responses live in Google Forms/Google Drive, accessible only to the Indie Relief organizers (Inkbound × Ash B) who need it to run the event.</p>
             <p><strong>How long we keep it:</strong> We keep entries until the winner has received prizes and any post-campaign checks are complete, then we periodically purge identifying data. You can request deletion at any time.</p>
             <p><strong>Third parties:</strong> Donations are processed on GoFundMe (their privacy terms apply). Entry data is collected via Google Forms/Drive (Google’s terms apply). We do not sell or share your data for marketing.</p>
@@ -279,11 +283,11 @@
       },
       form: { url: "https://forms.gle/fja1KcQQ2mJc38Mx8" },
       cause: {
-        name: "Current Author — Community Relief",
-        title: "Support Our Featured Indie Author",
-        summary: "We’re rallying the community to cover urgent costs so this author can stay safe, stable, and keep creating.",
-        image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1974&auto=format&fit=crop",
-        heroImage: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1974&auto=format&fit=crop",
+        name: "Current Creative — Community Relief",
+        title: "Support Our Featured Indie Creator",
+        summary: "We’re rallying the community to cover urgent costs so this member of the Indie Community can stay safe, stable, and keep creating.",
+        image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1974&auto=format&fit=crop",         /* bookish */
+        heroImage: "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1974&auto=format&fit=crop",     /* bookish */
         impact: [
           "Covers immediate essentials (rent, groceries, utilities)",
           "Provides recovery time to get back on their feet",
@@ -294,21 +298,21 @@
         drawISO: "2025-10-20T20:00:00Z" // UTC time for live draw
       },
       prizes: [
-        { name: "Custom Character Art Voucher", by: "Ash B", details: "One fully rendered character portrait (digital)", value: "$300 value" },
-        { name: "Website Audit or Mini Build", by: "Inkbound (Amanda)", details: "Audit + action plan, or a 1–3 page mini-build", value: "€400 value" },
-        { name: "Editing Consultation", by: "Partner Editor", details: "1-hour developmental consultation via Zoom", value: "$150 value" },
+        { name: "Custom Character Art Voucher", by: "Ash B", details: "One fully rendered character portrait (digital)", value: "$TBC value" },
+        { name: "Website Audit or Mini Build", by: "Inkbound (Amanda)", details: "Audit + action plan, or a 1–3 page mini-build", value: "€TBC value" },
+        { name: "Editing Consultation", by: "Partner Editor", details: "1-hour developmental consultation via Zoom", value: "$TBC value" },
       ],
       past: [
-        { name: "Author A", total: 4200, date: "2025-08-12", image: "https://images.unsplash.com/photo-1486825586573-7131f7991bdd?q=80&w=1974&auto=format&fit=crop" },
-        { name: "Author B", total: 3100, date: "2025-06-03", image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=1974&auto=format&fit=crop" },
-        { name: "Author C", total: 5200, date: "2025-03-21", image: "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1974&auto=format&fit=crop" },
+        { name: " A", total: 4200, date: "2025-08-12", image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1974&auto=format&fit=crop" }, /* stack of books */
+        { name: " B", total: 3100, date: "2025-06-03", image: "https://images.unsplash.com/photo-1455884981818-54cb785db6fc?q=80&w=1974&auto=format&fit=crop" }, /* cozy reading */
+        { name: " C", total: 5200, date: "2025-03-21", image: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=1974&auto=format&fit=crop" }  /* books in hand */
       ]
     };
 
     // ====== RENDER LOGIC ======
     const $ = (s)=>document.querySelector(s);
     const $$ = (s)=>document.querySelectorAll(s);
-    function money(n, currency = "€/$"){ if(typeof n !== 'number') return n; return new Intl.NumberFormat(undefined, { style:'currency', currency:'EUR' }).format(n).replace('€', currency); }
+    function money(n, currency = "$"){ if(typeof n !== 'number') return n; return new Intl.NumberFormat(undefined, { style:'currency', currency:'USD' }).format(n).replace('$', currency); }
 
     function init(){
       // Brand hues (if you want to drive CSS vars from config)
